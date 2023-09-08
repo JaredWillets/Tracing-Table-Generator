@@ -1,4 +1,3 @@
-import webbrowser
 from intermediate_converter import javaToIM
 from start_html import run as exportToHTML
 

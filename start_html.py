@@ -1,5 +1,6 @@
 import os
 import string
+import webbrowser
 def run(htmlString):
 	filename = generated_string = ''.join(random.choice(string.ascii_lowercase) for _ in range(length))
 	filename = filename+'.html'
