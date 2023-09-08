@@ -2,6 +2,7 @@ import json
 import csv
 import os
 import webbrowser
+from intermediate_converter import javaToIM
 
 def generateHistory(translatedLoop):
     
@@ -108,40 +109,6 @@ def exportToHTML(htmlString, filename = "temp.html"):
     filename = 'file:///'+os.getcwd()+'/' + filename
     webbrowser.open_new_tab(filename)
 
-def javaToIM(javaString):
-    pass ## TODO: Still in development
-    imString = ""
-    finalArray = []
-    javaSplit = javaString.split('\n')
-    for newLineSplit in javaSplit:
-        split = newLineSplit.split(';')
-        for el in split:
-            el = el.strip();
-            el = el.replace('\t','')
-            if el.strip() != "":finalArray.append(el)
-    finalArray.remove('}')
-    for lineNumber, line in enumerate(finalArray):
-        if line.startswith('int '):
-            imString += "var: "
-            imString += line.split('int ')[1]
-            imString += "\n"
-            imString += "init: "
-            imString += line
-        elif line.startswith('double '):
-            imString += "var: "
-            imString += line.split('double ')[1]
-            imString += "\n"
-            imString += "init: "
-            imString += line
-        elif line.startswith('while'):
-            imString += 'cond: '
-            imString += line.split('(')[1].split(')')[0]+"\n"
-            imString += "startloop"
-        else:
-            imString += line
-        if lineNumber != len(finalArray)-1:imString += "\n"
-            
-    return imString
 
 im = javaToIM(open("code.java",'r').read())
 history, initializationStatement, loopActions, condition, loopStatement = generateHistory(im)
