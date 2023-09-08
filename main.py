@@ -3,6 +3,7 @@ import csv
 import os
 import webbrowser
 from intermediate_converter import javaToIM
+from start_html import run as exportToHTML
 
 def generateHistory(translatedLoop):
     
@@ -102,12 +103,7 @@ def renderTracingTable(historyTable, initializationStatement, loopActions, condi
     finalString += "</table>"
     return finalString
         
-def exportToHTML(htmlString, filename = "temp.html"):
-    f = open(filename,'w')
-    f.write(htmlString)
-    f.close()
-    filename = 'file:///'+os.getcwd()+'/' + filename
-    webbrowser.open_new_tab(filename)
+
 
 
 im = javaToIM(open("code.java",'r').read())
