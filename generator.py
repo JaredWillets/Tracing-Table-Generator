@@ -6,8 +6,6 @@ import webbrowser
 def generateHistory(translatedLoop):
     
     splitLoop = translatedLoop.split('\n')
-
-
     variableList = []
 
     startLine = 0
@@ -145,8 +143,7 @@ def javaToIM(javaString):
             
     return imString
 
-im = javaToIM(open("test.java",'r').read())
-print(im)
+im = javaToIM(open("code.java",'r').read())
 history, initializationStatement, loopActions, condition, loopStatement = generateHistory(im)
 html = renderTracingTable(history, initializationStatement, loopActions, condition, loopStatement)
 exportToHTML(html)
