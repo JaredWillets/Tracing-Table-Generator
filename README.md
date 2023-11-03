@@ -12,8 +12,8 @@ Take the loop that you are tracing and put it in the code.java file. Run the `ge
 
 ## Features Coming Soon
 - Support for more datatypes
+- Support for arrays
 - GUI Application
-- Support for other languages
 - More formatting options
 - Possible syntax highlighting
 - Export to Word Document?
